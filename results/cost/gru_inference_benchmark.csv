@@ -1,0 +1,3 @@
+measurement_class,batch_size,sequence_length,repeats,mean_ms_per_sample,std_ms_per_sample,median_ms_per_sample
+release_reproduction_benchmark,1,32,20,1.9813992083072662,0.03920956064903896,1.9704848527908325
+release_reproduction_benchmark,64,32,20,0.03319172537885606,0.0009156519905467867,0.03307074075564742

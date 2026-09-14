@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "checks": {
+    "top128": {
+      "qwen_2.5_7b_instruct": {
+        "count": 128,
+        "unique_count": 128,
+        "sha256": "fa37c5de18ff23b174f4ef1dd849f3fc2ec7392752bb3fe1f0ed0bc890bb08b7",
+        "registry_match": true,
+        "status": "confirmed"
+      },
+      "ministral_8b_instruct": {
+        "count": 128,
+        "unique_count": 128,
+        "sha256": "592a5b4c49c549b324140a9e10629d620a448d7a7785e0d7d3739ad22586299f",
+        "registry_match": true,
+        "status": "confirmed"
+      },
+      "mistral_7b_instruct": {
+        "count": 128,
+        "unique_count": 128,
+        "sha256": "61bc9a99ef1506d533fa9260af21efa27acbf4269b8c05e8608fa2130fb851a8",
+        "registry_match": true,
+        "status": "confirmed"
+      },
+      "llama3.1_8b_chat": {
+        "count": 128,
+        "unique_count": 128,
+        "sha256": "21616d9993a5cd487d6bb21613197c2dc4e02e3ae72d2ddb8acbca684cdb39a4",
+        "registry_match": true,
+        "status": "confirmed"
+      }
+    },
+    "formal_shells": {
+      "run_direct_transfer.sh": {
+        "raw_extractor": true,
+        "feature_mode_activation": true,
+        "no_with_logits": true,
+        "no_fusion_command": true
+      },
+      "run_fixed_node_adaptation.sh": {
+        "raw_extractor": true,
+        "feature_mode_activation": true,
+        "no_with_logits": true,
+        "no_fusion_command": true
+      }
+    },
+    "main_results": {
+      "non_trivia_rows_per_setting": 20,
+      "direct_macro": {
+        "auroc": 0.7590162868582677,
+        "auprc": 0.717668757228952,
+        "accuracy": 0.7390049534714025,
+        "f1": 0.5295921642643858,
+        "brier": 0.16395076997578145,
+        "ece": 0.12854188139321965
+      },
+      "adapted_macro": {
+        "auroc": 0.9013803785094495,
+        "auprc": 0.866491325251672,
+        "accuracy": 0.8416892859448992,
+        "f1": 0.7945129985630163,
+        "brier": 0.08863894920796156,
+        "ece": 0.033884670396346725
+      },
+      "accuracy_improved": "18/20",
+      "gsm8k_auroc_macro_direct": 0.5807497272112144,
+      "gsm8k_auroc_macro_adapted": 0.8123471901081779,
+      "gsm8k_auroc_delta": 0.23159746289696348
+    },
+    "ablation": {
+      "configuration_count": 7,
+      "gsm8k_random_128": true
+    },
+    "readme_paths": {
+      "checked": [
+        "scripts/run_direct_transfer.sh",
+        "scripts/run_fixed_node_adaptation.sh",
+        "scripts/run_ablation.sh",
+        "scripts/benchmark_gru_inference.py",
+        "configs/ablation_final.json",
+        "results/ablation/ablation_results.csv",
+        "results/main",
+        "results/cost",
+        "docs/REPRODUCIBILITY.md"
+      ],
+      "missing": []
+    },
+    "public_cleanup": {
+      "forbidden_files": [],
+      "private_absolute_paths": [],
+      "credential_patterns": []
+    }
+  }
+}

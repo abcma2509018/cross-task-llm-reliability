@@ -1,0 +1,17 @@
+{
+  "provenance": {
+    "trivia_qa_2_60k": "retained formal TriviaQA no-scalar command",
+    "standard_transfer_targets": "retained standard multi-dataset pipeline",
+    "gsm8k": "formal gsm8k-aligned-v2 generation config"
+  },
+  "max_input_tokens": 1024,
+  "max_new_tokens": {
+    "trivia_qa_2_60k": 64,
+    "notable_people": 128,
+    "cities_10k": 128,
+    "math_operations_6k": 128,
+    "medals_9k": 128,
+    "gsm8k": 1024
+  },
+  "gsm8k_extraction_batch_size": 8
+}

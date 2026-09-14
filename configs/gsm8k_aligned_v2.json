@@ -1,0 +1,92 @@
+{
+  "protocol_version": "gsm8k-aligned-v2",
+  "status": "formal",
+  "models": [
+    "qwen_2.5_7b_instruct",
+    "ministral_8b_instruct",
+    "llama3.1_8b_chat",
+    "mistral_7b_instruct"
+  ],
+  "generation": {
+    "dataset": "gsm8k",
+    "prompt_version": "base_3_shot",
+    "prompt_key": "qa_prompt",
+    "batch_size": 8,
+    "padding_side": "left",
+    "pad_token_id": "tokenizer.eos_token_id",
+    "eos_token_id": "tokenizer.eos_token_id",
+    "do_sample": false,
+    "use_cache": true,
+    "max_new_tokens": 1024,
+    "stop_words": [
+      "}$"
+    ],
+    "temperature": null,
+    "top_p": null,
+    "top_k": null,
+    "dtype": "bfloat16",
+    "preserve_original_order": true,
+    "preserve_original_batch_boundaries": true
+  },
+  "neuron_selection": {
+    "source_dataset": "TriviaQA",
+    "source_split": "train",
+    "selection_size": 10000,
+    "top_k": 128,
+    "reselected_for_aligned_v2": false
+  },
+  "trajectory": {
+    "hook": "input to each transformer layer mlp.down_proj",
+    "features": [
+      "prompt_last",
+      "prompt_mean",
+      "prompt_max",
+      "generation_steps"
+    ],
+    "storage_dtype": "float16"
+  },
+  "transfer_targets": {
+    "datasets": [
+      "trivia_qa_2_60k",
+      "notable_people",
+      "cities_10k",
+      "math_operations_6k",
+      "medals_9k"
+    ],
+    "split": "test",
+    "batch_size": 8,
+    "do_sample": false,
+    "use_cache": true,
+    "max_new_tokens": 128,
+    "stop_words": [
+      "tokenizer.eos_token",
+      "\n"
+    ],
+    "order": "existing test manifest order"
+  },
+  "predictor": {
+    "type": "single-layer unidirectional GRU",
+    "input_size": 128,
+    "hidden_size": 256,
+    "num_layers": 1,
+    "dropout": 0.2,
+    "loss": "BCEWithLogitsLoss",
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clipping": 1.0,
+    "batch_size": 64,
+    "epochs": 40,
+    "seeds": [
+      13,
+      21,
+      42,
+      87,
+      100
+    ],
+    "checkpoint_selection": "maximum development AUROC",
+    "ensemble": "arithmetic mean of five P(correct) values",
+    "threshold": "development-set Youden index",
+    "ece_bins": 15
+  }
+}

@@ -1,0 +1,1 @@
+{"source":"retained protocol metadata","shape":[8782,32,128],"dtype":"float32","bytes_per_step":512,"mean_T":5.6389,"effective_bytes_per_sample":2887.1168,"effective_KiB_per_sample":2.81945,"padded_T32_KiB_per_sample":16.0,"status":"deterministic summary; no trajectory tensor copied"}

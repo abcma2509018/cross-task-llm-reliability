@@ -1,0 +1,16 @@
+{
+  "measurement_class": "paper_reported_cost",
+  "status": "historical manuscript measurement",
+  "original_transient_benchmark_script_retained": false,
+  "architecture": {
+    "ensemble_size": 5,
+    "input_dim": 128,
+    "hidden_size": 256,
+    "num_layers": 1,
+    "bidirectional": false
+  },
+  "measurements": [
+    {"batch_size": 1, "mean_ms_per_sample": 1.193},
+    {"batch_size": 64, "mean_ms_per_sample": 0.022}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "measurement_class": "release_reproduction_benchmark",
+  "environment": {
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "pytorch": "2.8.0+cu128",
+    "cuda_runtime": "12.8",
+    "python": "3.12.3",
+    "architecture": "5-model ensemble; input_dim=128; hidden_size=256; layers=1; bidirectional=false"
+  },
+  "results": [
+    {
+      "batch_size": 1,
+      "sequence_length": 32,
+      "repeats": 20,
+      "mean_ms_per_sample": 1.9813992083072662,
+      "std_ms_per_sample": 0.03920956064903896,
+      "median_ms_per_sample": 1.9704848527908325
+    },
+    {
+      "batch_size": 64,
+      "sequence_length": 32,
+      "repeats": 20,
+      "mean_ms_per_sample": 0.03319172537885606,
+      "std_ms_per_sample": 0.0009156519905467867,
+      "median_ms_per_sample": 0.03307074075564742
+    }
+  ]
+}

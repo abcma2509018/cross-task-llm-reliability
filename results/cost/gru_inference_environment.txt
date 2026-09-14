@@ -1,0 +1,6 @@
+GPU: NVIDIA GeForce RTX 5090 (nvidia-smi)
+Benchmark script: scripts/benchmark_gru_inference.py
+Measurement class: release_reproduction_benchmark
+Architecture: 5-model ensemble, input_dim=128, hidden_size=256, 1-layer unidirectional GRU
+CUDA warmup and torch.cuda.synchronize used; 20 repeats; sequence length 32.
+This is a new reproducibility microbenchmark, not the original manuscript timing.

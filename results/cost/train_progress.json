@@ -1,0 +1,9 @@
+{
+  "split": "train",
+  "processed": 40982,
+  "total": 40982,
+  "elapsed_seconds": 4433.04064822197,
+  "estimated_remaining_seconds": 0.0,
+  "checkpoint_path": "02_模型实验过程与结果/ministral_8b_instruct/正式结果/Method_A_Direct_Transfer_no_scalar_raw_activation/features/trivia_qa_2_60k_ckpt/train_partial.pt",
+  "updated_at_unix": 1783752465.7547152
+}
