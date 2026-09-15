@@ -1,0 +1,45 @@
+component,parameter,value,source
+shared,models,"qwen_2.5_7b_instruct; ministral_8b_instruct; mistral_7b_instruct; llama3.1_8b_chat",paper
+shared,target_datasets,"trivia_qa_2_60k; notable_people; cities_10k; math_operations_6k; medals_9k; gsm8k",paper
+shared,external_layout,"DATA_ROOT/<model_key>/<dataset>/<split>.jsonl; MODEL_ROOT/<model_key>; OUTPUT_ROOT",release default
+shared,ministral_tokenizer_fix_mistral_regex,true,historical runner
+ni_avg_state,source_dataset,trivia_qa_2_60k,paper
+ni_avg_state,source_samples_per_class,1000,paper
+ni_avg_state,source_development_checkpoint_selection,true,paper
+ni_avg_state,target_threshold,0.5,paper
+ni_avg_state,greedy_generation,true,paper
+ni_avg_state,seeds,"0; 42; 100",historical runner
+ni_avg_state,intermediate_layer_index,"qwen:14; ministral:18; mistral:16; llama:16",historical runner
+ni_avg_state,hidden_dim,512,historical runner
+ni_avg_state,classifier_hidden_layers,1,paper
+ni_avg_state,activation,relu,historical runner
+ni_avg_state,class_weighting,none,historical runner
+ni_avg_state,optimizer,adam,historical runner
+ni_avg_state,weight_decay,0.0,historical runner
+ni_avg_state,dropout,0.5,historical runner
+ni_avg_state,learning_rate,0.00005,historical runner
+ni_avg_state,batch_size,16,historical runner
+ni_avg_state,epochs,30,historical runner
+ni_avg_state,checkpoint_metric,accuracy,release default
+ni_avg_state,max_input_tokens,1024,historical runner
+ni_avg_state,max_new_tokens,"128 (non-GSM8K); 1024 (GSM8K)",historical runner
+ni_avg_state,stop_words,"model EOS + newline (non-GSM8K); }$ (GSM8K)",historical runner
+ni_avg_state,require_answer_match,true,release default
+prism_saplma,judgment_query_template,Does the statement <generated_response> accurately reflect the truth?,paper
+prism_saplma,source_train_fraction,0.8,paper
+prism_saplma,source_development_fraction,0.2,paper
+prism_saplma,source_development_checkpoint_selection,true,paper
+prism_saplma,target_threshold,0.5,paper
+prism_saplma,seeds,"0; 1; 2",historical runner
+prism_saplma,hidden_dim,256,historical runner
+prism_saplma,classifier_hidden_layers,1,release default
+prism_saplma,activation,relu,historical runner
+prism_saplma,class_weighting,complement_frequency,historical runner
+prism_saplma,optimizer,adam,historical runner
+prism_saplma,weight_decay,0.0,historical runner
+prism_saplma,dropout,0.2,historical runner
+prism_saplma,learning_rate,0.001,historical runner
+prism_saplma,batch_size,32,historical runner
+prism_saplma,epochs,10,historical runner
+prism_saplma,checkpoint_metric,accuracy,release default
+prism_saplma,max_input_tokens,1024,historical runner

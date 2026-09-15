@@ -1,0 +1,137 @@
+{
+  "shared": {
+    "models": [
+      "qwen_2.5_7b_instruct",
+      "ministral_8b_instruct",
+      "mistral_7b_instruct",
+      "llama3.1_8b_chat"
+    ],
+    "target_datasets": [
+      "trivia_qa_2_60k",
+      "notable_people",
+      "cities_10k",
+      "math_operations_6k",
+      "medals_9k",
+      "gsm8k"
+    ],
+    "external_layout": {
+      "data": "DATA_ROOT/<model_key>/<dataset>/<split>.jsonl",
+      "model": "MODEL_ROOT/<model_key>/",
+      "output": "OUTPUT_ROOT/"
+    },
+    "tokenizer_options": {
+      "ministral_8b_instruct": {"fix_mistral_regex": true}
+    },
+    "parameter_provenance": {
+      "models": "paper",
+      "target_datasets": "paper",
+      "external_layout": "release default",
+      "tokenizer_options": "historical runner"
+    }
+  },
+  "ni_avg_state": {
+    "source_dataset": "trivia_qa_2_60k",
+    "source_samples_per_class": 1000,
+    "source_development_checkpoint_selection": true,
+    "target_threshold": 0.5,
+    "seeds": [0, 42, 100],
+    "greedy_generation": true,
+    "require_answer_match": true,
+    "intermediate_layer_index": {
+      "qwen_2.5_7b_instruct": 14,
+      "ministral_8b_instruct": 18,
+      "mistral_7b_instruct": 16,
+      "llama3.1_8b_chat": 16
+    },
+    "hidden_dim": 512,
+    "classifier_hidden_layers": 1,
+    "activation": "relu",
+    "class_weighting": "none",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "dropout": 0.5,
+    "learning_rate": 0.00005,
+    "batch_size": 16,
+    "epochs": 30,
+    "checkpoint_metric": "accuracy",
+    "max_input_tokens": 1024,
+    "max_new_tokens_by_dataset": {
+      "trivia_qa_2_60k": 128,
+      "notable_people": 128,
+      "cities_10k": 128,
+      "math_operations_6k": 128,
+      "medals_9k": 128,
+      "gsm8k": 1024
+    },
+    "model_eos_text": {
+      "qwen_2.5_7b_instruct": "<|im_end|>",
+      "ministral_8b_instruct": "</s>",
+      "mistral_7b_instruct": "</s>",
+      "llama3.1_8b_chat": "<|end_of_text|>"
+    },
+    "gsm8k_stop_words": ["}$"],
+    "parameter_provenance": {
+      "source_dataset": "paper",
+      "source_samples_per_class": "paper",
+      "source_development_checkpoint_selection": "paper",
+      "target_threshold": "paper",
+      "seeds": "historical runner",
+      "greedy_generation": "paper",
+      "require_answer_match": "release default",
+      "intermediate_layer_index": "historical runner",
+      "hidden_dim": "historical runner",
+      "classifier_hidden_layers": "paper",
+      "activation": "historical runner",
+      "class_weighting": "historical runner",
+      "optimizer": "historical runner",
+      "weight_decay": "historical runner",
+      "dropout": "historical runner",
+      "learning_rate": "historical runner",
+      "batch_size": "historical runner",
+      "epochs": "historical runner",
+      "checkpoint_metric": "release default",
+      "max_input_tokens": "historical runner",
+      "max_new_tokens_by_dataset": "historical runner",
+      "model_eos_text": "historical runner",
+      "gsm8k_stop_words": "historical runner"
+    }
+  },
+  "prism_saplma": {
+    "judgment_query_template": "Does the statement <generated_response> accurately reflect the truth?",
+    "source_train_fraction": 0.8,
+    "source_development_checkpoint_selection": true,
+    "target_threshold": 0.5,
+    "seeds": [0, 1, 2],
+    "hidden_dim": 256,
+    "classifier_hidden_layers": 1,
+    "activation": "relu",
+    "class_weighting": "complement_frequency",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "epochs": 10,
+    "checkpoint_metric": "accuracy",
+    "max_input_tokens": 1024,
+    "parameter_provenance": {
+      "judgment_query_template": "paper",
+      "source_train_fraction": "paper",
+      "source_development_checkpoint_selection": "paper",
+      "target_threshold": "paper",
+      "seeds": "historical runner",
+      "hidden_dim": "historical runner",
+      "classifier_hidden_layers": "release default",
+      "activation": "historical runner",
+      "class_weighting": "historical runner",
+      "optimizer": "historical runner",
+      "weight_decay": "historical runner",
+      "dropout": "historical runner",
+      "learning_rate": "historical runner",
+      "batch_size": "historical runner",
+      "epochs": "historical runner",
+      "checkpoint_metric": "release default",
+      "max_input_tokens": "historical runner"
+    }
+  }
+}

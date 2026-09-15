@@ -1,0 +1,5 @@
+model,n_transformer_layers,hf_hidden_state_count,repository_middle_index,effective_transformer_block,hidden_dim
+qwen_2.5_7b_instruct,28,29,14,13,3584
+ministral_8b_instruct,36,37,18,17,4096
+mistral_7b_instruct,32,33,16,15,4096
+llama3.1_8b_chat,32,33,16,15,4096
