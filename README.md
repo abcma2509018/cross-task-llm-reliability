@@ -1,13 +1,15 @@
-# cross-task-llm-reliability: cloud1 release v3
+# Cross-Task LLM Reliability
 
-This package contains the cloud1 portion of the paper: model-specific TriviaQA
-Top-128 sparse MLP observation nodes, the code and metadata needed to reproduce raw activation trajectories, but does not distribute trajectory tensors. A GRU
-reliability predictor, Direct Transfer, Fixed-node Adaptation, the reported
-ablation workflows, and deployment-cost reproduction utilities.
+This repository contains the reproducible code, metadata, and compact result
+summaries for cross-task LLM answer-reliability experiments: model-specific
+TriviaQA Top-128 sparse MLP observation nodes, the code and metadata needed to
+reproduce raw activation trajectories, but does not distribute trajectory
+tensors; a GRU reliability predictor; Direct Transfer; Fixed-node Adaptation;
+reported ablations; and the Ni-Avg-State and PRISM-SAPLMA baselines.
 
-It does not contain K sensitivity, Ni-Avg-State, PRISM-SAPLMA, model weights,
-datasets, checkpoints, activation/trajectory tensors, prediction dumps, or raw
-logs. Those exclusions are intentional.
+It does not contain K-sensitivity experiments, model weights, datasets,
+checkpoints, activation/trajectory tensors, prediction dumps, or raw logs.
+Those exclusions are intentional.
 
 ## Final method
 
@@ -23,9 +25,8 @@ logs. Those exclusions are intentional.
 
 The retained implementation is `src/code/triviaqa_mlp_trajectory.py`. Its
 `train-gru` command uses a shuffled PyTorch `DataLoader` with the requested
-mini-batch size. The old fusion-oriented orchestration file is retained only as
-`legacy/run_multimodel_correctness_experiments_fusion.py` and is not an entry
-point for the paper method.
+mini-batch size. Historical fusion orchestration is retained only for reference
+and is not a formal entry point for the paper method.
 
 ## Entry points
 
@@ -65,5 +66,6 @@ path and SHA256. Deployment measurements are under `results/cost/` and separate
 historical manuscript values from the release-time reproduction benchmark.
 Re-run the microbenchmark with `scripts/benchmark_gru_inference.py`.
 
-See `docs/REPRODUCIBILITY.md` for required external inputs and
-`RELEASE_V3_AUDIT.md` for automated closure checks.
+See `docs/REPRODUCIBILITY.md` for required external inputs,
+`docs/BASELINES.md` for the baseline protocols, and `RELEASE_AUDIT.md` for
+automated closure checks.

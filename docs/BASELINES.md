@@ -1,4 +1,4 @@
-# Cloud2 baselines release
+# Baseline methods release
 
 This release contains paper-faithful reproduction code for Ni-Avg-State and
 PRISM-SAPLMA across four language models and six datasets. It does not include

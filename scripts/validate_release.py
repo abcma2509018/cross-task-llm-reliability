@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the public v3 package without loading models or experiment tensors."""
+"""Validate the public release without loading models or experiment tensors."""
 
 from __future__ import annotations
 
@@ -135,7 +135,7 @@ def main() -> None:
             text = path.read_text(encoding="utf-8")
         except UnicodeDecodeError:
             continue
-        if relative == "scripts/validate_release_v3.py":
+        if relative == "scripts/validate_release.py":
             continue
         if private_pattern.search(text):
             private_hits.append(relative)
@@ -148,7 +148,7 @@ def main() -> None:
         "credential_patterns": credential_hits,
     }
 
-    output = ROOT / "V3_VALIDATION.json"
+    output = ROOT / "RELEASE_VALIDATION.json"
     output.write_text(json.dumps({"status": "PASS", "checks": checks}, indent=2) + "\n", encoding="utf-8")
     print(output)
 

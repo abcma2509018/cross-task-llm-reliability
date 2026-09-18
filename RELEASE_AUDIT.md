@@ -1,4 +1,4 @@
-# Cloud1 release v3 audit
+# Release audit
 
 Audit date: 2026-09-14. This closure used retained formal artifacts only; no
 model training, feature extraction, or metric recomputation was performed.
@@ -106,5 +106,5 @@ and, for ablations, the omitted formal tensor artifacts. The historical GRU
 cost benchmark script is unavailable, so its manuscript values remain labelled
 as historical measurements rather than release-time reproduction results.
 
-Machine-readable validation is in `V3_VALIDATION.json`. Package file count and
+Machine-readable validation is in `RELEASE_VALIDATION.json`. Package file count and
 size are recorded after final cleanup in the ZIP verification output.
